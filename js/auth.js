@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    auth.onAuthStateChanged(user => {
+  window.firebaseAuth.onAuthStateChanged(user => {
       if (user) {
         if (user.email === 'enilamaoshoriamhe687@gmail.com') {
           loadUserData(user.uid);
