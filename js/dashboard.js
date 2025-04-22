@@ -1,8 +1,5 @@
-// dashboard.js
-import { auth, db } from './firebase-config.js';
-
 // Initialize dashboard
-export function loadDashboard() {
+function loadDashboard() {
     updateDateTime();
     setInterval(updateDateTime, 60000);
     loadGoalProgress();
@@ -30,10 +27,10 @@ function updateDateTime() {
 
 // Goal Progress Tracking
 function loadGoalProgress() {
-    const userId = auth.currentUser.uid;
+    const userId = window.firebaseAuth.currentUser.uid;
     const today = new Date().toISOString().split('T')[0];
     
-    db.collection('users').doc(userId).collection('dailyTasks')
+    window.firebaseDB.collection('users').doc(userId).collection('dailyTasks')
         .where('date', '==', today)
         .onSnapshot(snapshot => {
             let completed = 0;
@@ -59,9 +56,9 @@ function updateProgressCircle(percentage) {
 
 // Project Progress Bars
 function loadProjectProgress() {
-    const userId = auth.currentUser.uid;
+    const userId = window.firebaseAuth.currentUser.uid;
     
-    db.collection('users').doc(userId).collection('projects')
+    window.firebaseDB.collection('users').doc(userId).collection('projects')
         .where('status', '==', 'active')
         .onSnapshot(snapshot => {
             const container = document.getElementById('project-progress');
@@ -155,11 +152,11 @@ function initializeCharts() {
 
 // Deadline Management
 function loadDeadlines() {
-    const userId = auth.currentUser.uid;
+    const userId = window.firebaseAuth.currentUser.uid;
     const now = new Date();
     const nextWeek = new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000);
     
-    db.collection('users').doc(userId).collection('deadlines')
+    window.firebaseDB.collection('users').doc(userId).collection('deadlines')
         .where('date', '>=', now)
         .where('date', '<=', nextWeek)
         .onSnapshot(snapshot => {
