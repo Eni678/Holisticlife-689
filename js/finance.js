@@ -1,5 +1,4 @@
-// finance.js
-import { auth, db } from './js/firebase-config.js';
+// finance.js - Non-Module Version
 
 // Ray Dalio's Principles Configuration
 const dalioPrinciples = {
@@ -14,7 +13,7 @@ const dalioPrinciples = {
 };
 
 // Initialize Finance Module
-export function initFinanceModule() {
+function initFinanceModule() {
     loadFinancialHealth();
     setupFinanceListeners();
     loadWealthBuildingStrategies();
@@ -23,9 +22,9 @@ export function initFinanceModule() {
 
 // Financial Health Dashboard
 function loadFinancialHealth() {
-    const userId = auth.currentUser.uid;
+    const userId = window.firebaseAuth.currentUser.uid;
     
-    db.collection('users').doc(userId).collection('finance')
+    window.firebaseDB.collection('users').doc(userId).collection('finance')
         .doc('currentState').onSnapshot(doc => {
             if (doc.exists) {
                 const data = doc.data();
@@ -133,7 +132,7 @@ function setupFinanceListeners() {
             created: new Date()
         };
 
-        await db.collection('users').doc(auth.currentUser.uid)
+        await window.firebaseDB.collection('users').doc(window.firebaseAuth.currentUser.uid)
             .collection('financialGoals').add(goal);
         
         // Reset form
@@ -143,9 +142,9 @@ function setupFinanceListeners() {
 
 // Purchase Tracking System
 function loadPurchaseGoals() {
-    const userId = auth.currentUser.uid;
+    const userId = window.firebaseAuth.currentUser.uid;
     
-    db.collection('users').doc(userId).collection('purchaseGoals')
+    window.firebaseDB.collection('users').doc(userId).collection('purchaseGoals')
         .onSnapshot(snapshot => {
             const container = document.getElementById('purchase-goals');
             container.innerHTML = '';
