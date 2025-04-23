@@ -11,10 +11,10 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
-const db = firebase.firestore();
 
-// Make available globally
-window.firebaseApp = app;
-window.firebaseAuth = auth;
-window.firebaseDB = db;
+// Initialize services and make them globally available
+window.firebaseAuth = firebase.auth(app);
+window.firebaseDB = firebase.firestore(app);
+
+// Optional: Initialize analytics if needed
+// window.firebaseAnalytics = firebase.analytics(app);
