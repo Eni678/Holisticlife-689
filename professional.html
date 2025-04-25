@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Planner | Holistic Life Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!--#include virtual="sidebar.html" -->
+        <nav class="sidebar">
+            <div class="profile">
+                <div class="profile-img">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <h3>Enilama Oshoriamhe</h3>
+                <p>Biochemist | Data Engineer | Developer</p>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li><a href="daily-planner.html"><i class="fas fa-calendar-day"></i> Daily Planner</a></li>
+                <li><a href="goals.html"><i class="fas fa-bullseye"></i> Goals & Challenges</a></li>
+                <li><a href="reflection.html"><i class="fas fa-book"></i> Journal & Reflection</a></li>
+                <li><a href="professional.html"><i class="fas fa-briefcase"></i> Professional Life</a></li>
+                <li><a href="finance.html"><i class="fas fa-chart-line"></i> Financial Tracker</a></li>
+                <li><a href="learning.html"><i class="fas fa-graduation-cap"></i> Learning & Growth</a></li>
+                <li><a href="spiritual.html"><i class="fas fa-pray"></i> Spiritual Journey</a></li>
+                <li><a href="relationships.html"><i class="fas fa-users"></i> Relationships</a></li>
+                <li><a href="analytics.html"><i class="fas fa-chart-bar"></i> Growth Analytics</a></li>
+                <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+            </ul>
+            
+            <div class="logout">
+                <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </nav>
+        
+        <main class="content">
+            <!--#include virtual="header.html" -->
+            <header>
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search...">
+                </div>
+                
+                <div class="header-right">
+                    <div class="date-time">
+                        <span id="current-date">April 20, 2025</span>
+                        <span id="current-time">12:00 PM</span>
+                    </div>
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                </div>
+            </header>
+            
+            <section class="section" id="professional">
+                <div class="professional-header">
+                    <h2>Professional Development</h2>
+                    <div class="professional-controls">
+                        <button id="add-professional-goal" class="btn-primary">
+                            <i class="fas fa-plus"></i> Add Goal
+                        </button>
+                        <div class="view-switcher">
+                            <select id="professional-view-selector">
+                                <option value="dashboard">Dashboard</option>
+                                <option value="skills">Skills Tracker</option>
+                                <option value="jobhunt">Job Hunt</option>
+                                <option value="learning">Learning</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="professional-container">
+                    <!-- Dashboard View -->
+                    <div id="professional-dashboard" class="professional-view active">
+                        <div class="welcome-card">
+                            <div class="welcome-content">
+                                <h3>Welcome to Your Professional Journey</h3>
+                                <p>You're at the beginning of an exciting career path. Track your progress and build momentum.</p>
+                                <button id="setup-profile" class="btn-secondary">
+                                    <i class="fas fa-user-cog"></i> Setup Your Profile
+                                </button>
+                            </div>
+                            <div class="welcome-icon">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                        </div>
+
+                        <div class="quick-stats">
+                            <div class="stat-card">
+                                <div class="stat-value">0</div>
+                                <div class="stat-label">Applications Sent</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-value">0</div>
+                                <div class="stat-label">Skills Mastered</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-value">0</div>
+                                <div class="stat-label">Networking Contacts</div>
+                            </div>
+                        </div>
+
+                        <div class="action-items">
+                            <h3><i class="fas fa-list-check"></i> Recommended First Steps</h3>
+                            <div class="action-list">
+                                <div class="action-item">
+                                    <input type="checkbox" id="action1">
+                                    <label for="action1">Complete your professional profile</label>
+                                </div>
+                                <div class="action-item">
+                                    <input type="checkbox" id="action2">
+                                    <label for="action2">Identify 3 target job roles</label>
+                                </div>
+                                <div class="action-item">
+                                    <input type="checkbox" id="action3">
+                                    <label for="action3">Take a skills assessment</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skills Tracker View -->
+                    <div id="professional-skills" class="professional-view">
+                        <div class="skills-intro">
+                            <h3><i class="fas fa-lightbulb"></i> Core Skills Development</h3>
+                            <p>Track the technical and soft skills you need for your target roles.</p>
+                        </div>
+
+                        <div class="skills-categories">
+                            <div class="category-card">
+                                <h4><i class="fas fa-laptop-code"></i> Technical Skills</h4>
+                                <div class="skill-item">
+                                    <span class="skill-name">Python</span>
+                                    <div class="skill-level">
+                                        <div class="level-dot active"></div>
+                                        <div class="level-dot"></div>
+                                        <div class="level-dot"></div>
+                                        <div class="level-dot"></div>
+                                        <div class="level-dot"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">SQL</span>
+                                    <div class="skill-level">
+                                        <div class="level-dot active"></div>
+                                        <div class="level-dot active"></div>
+                                        <div class="level-dot"></div>
+                                        <div class="level-dot"></div>
+                                        <div class="level-dot"></div>
+                                    </div>
+                                </div>
+                                <button class="btn-add-skill">
+                                    <i class="fas fa-plus"></i> Add Skill
+                                </button>
+                            </div>
+
+                            <div class="category-card">
+                                <h4><i class="fas fa-people-arrows"></i> Professional Skills</h4>
+                                <div class="skill-item">
+                                    <span class="skill-name">Communication</span>
+                                    <div class="skill-level">
+                                        <div class="level-dot active"></div>
+                                        <div class="level-dot active"></div>
+                                        <div class="level-dot active"></div>
+                                        <div class="level-dot"></div>
+                                        <div class="level-dot"></div>
+                                    </div>
+                                </div>
+                                <button class="btn-add-skill">
+                                    <i class="fas fa-plus"></i> Add Skill
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Job Hunt View -->
+                    <div id="professional-jobhunt" class="professional-view">
+                        <div class="jobhunt-header">
+                            <h3><i class="fas fa-briefcase"></i> Job Search Tracker</h3>
+                            <button id="add-application" class="btn-secondary">
+                                <i class="fas fa-plus"></i> Add Application
+                            </button>
+                        </div>
+
+                        <div class="application-stages">
+                            <div class="stage-column">
+                                <h4>Saved (0)</h4>
+                                <div class="application-cards">
+                                    <!-- Applications will go here -->
+                                </div>
+                            </div>
+                            <div class="stage-column">
+                                <h4>Applied (0)</h4>
+                                <div class="application-cards">
+                                    <div class="application-card">
+                                        <h5>Junior Data Analyst</h5>
+                                        <p>HealthTech Company</p>
+                                        <div class="application-date">Applied: 05/15/2024</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="stage-column">
+                                <h4>Interview (0)</h4>
+                                <div class="application-cards">
+                                    <!-- Applications will go here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Learning View -->
+                    <div id="professional-learning" class="professional-view">
+                        <div class="learning-header">
+                            <h3><i class="fas fa-graduation-cap"></i> Learning Plan</h3>
+                            <button id="add-resource" class="btn-secondary">
+                                <i class="fas fa-plus"></i> Add Resource
+                            </button>
+                        </div>
+
+                        <div class="learning-resources">
+                            <div class="resource-card">
+                                <div class="resource-type">Course</div>
+                                <h4>Python for Beginners</h4>
+                                <div class="resource-meta">
+                                    <span>Coursera</span>
+                                    <span>10% completed</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 10%"></div>
+                                </div>
+                            </div>
+
+                            <div class="resource-card">
+                                <div class="resource-type">Book</div>
+                                <h4>SQL in 10 Minutes</h4>
+                                <div class="resource-meta">
+                                    <span>Sams Teach Yourself</span>
+                                    <span>Not started</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 0%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add Goal Modal -->
+                <div id="goal-modal" class="modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3>Add Professional Goal</h3>
+                            <button class="close-modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="goal-form">
+                                <div class="form-group">
+                                    <label for="goal-title">Goal Title*</label>
+                                    <input type="text" id="goal-title" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="goal-category">Category*</label>
+                                    <select id="goal-category" required>
+                                        <option value="">Select category</option>
+                                        <option value="skill">Skill Development</option>
+                                        <option value="job">Job Search</option>
+                                        <option value="certification">Certification</option>
+                                        <option value="network">Networking</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="goal-deadline">Target Date</label>
+                                    <input type="date" id="goal-deadline">
+                                </div>
+                                <div class="form-group">
+                                    <label for="goal-notes">Notes</label>
+                                    <textarea id="goal-notes" rows="3"></textarea>
+                                </div>
+                                <div class="form-actions">
+                                    <button type="submit" class="btn-primary">Save Goal</button>
+                                    <button type="button" class="btn-secondary" id="cancel-goal">Cancel</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>            
+            
+            <!-- Task Modal from original -->
+        </main>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

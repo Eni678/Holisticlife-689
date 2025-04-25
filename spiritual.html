@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spiritual Journey | Holistic Life Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="profile">
+                <div class="profile-img">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <h3>Enilama Oshoriamhe</h3>
+                <p>Biochemist | Data Engineer | Developer</p>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li><a href="daily-planner.html"><i class="fas fa-calendar-day"></i> Daily Planner</a></li>
+                <li><a href="goals.html"><i class="fas fa-bullseye"></i> Goals & Challenges</a></li>
+                <li><a href="reflection.html"><i class="fas fa-book"></i> Journal & Reflection</a></li>
+                <li><a href="professional.html"><i class="fas fa-briefcase"></i> Professional Life</a></li>
+                <li><a href="finance.html"><i class="fas fa-chart-line"></i> Financial Tracker</a></li>
+                <li><a href="learning.html"><i class="fas fa-graduation-cap"></i> Learning & Growth</a></li>
+                <li class="active"><a href="spiritual.html"><i class="fas fa-pray"></i> Spiritual Journey</a></li>
+                <li><a href="relationships.html"><i class="fas fa-users"></i> Relationships</a></li>
+                <li><a href="analytics.html"><i class="fas fa-chart-bar"></i> Growth Analytics</a></li>
+                <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+            </ul>
+            
+            <div class="logout">
+                <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </nav>
+        
+        <main class="content">
+            <!-- Header -->
+            <header>
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search...">
+                </div>
+                
+                <div class="header-right">
+                    <div class="date-time">
+                        <span id="current-date">April 23, 2025</span>
+                        <span id="current-time">12:00 PM</span>
+                    </div>
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- Spiritual Content -->
+            <div class="spiritual-container">
+                <div class="spiritual-header">
+                    <h2>Spiritual Growth Tracker</h2>
+                    <div class="spiritual-controls">
+                        <button id="add-spiritual-activity" class="btn-primary">
+                            <i class="fas fa-plus"></i> Add Activity
+                        </button>
+                        <div class="spiritual-view">
+                            <select id="spiritual-view-selector">
+                                <option value="dashboard">Dashboard</option>
+                                <option value="bible">Bible Study</option>
+                                <option value="prayer">Prayer Life</option>
+                                <option value="character">Character Study</option>
+                                <option value="evangelism">Evangelism</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dashboard View -->
+                <div id="spiritual-dashboard" class="spiritual-view-content active">
+                    <div class="spiritual-summary">
+                        <div class="summary-card">
+                            <h3><i class="fas fa-bible"></i> Bible Engagement</h3>
+                            <div class="summary-stats">
+                                <div class="stat-item">
+                                    <div class="stat-value" id="bible-streak">0</div>
+                                    <div class="stat-label">Day Streak</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-value" id="bible-percentage">0%</div>
+                                    <div class="stat-label">Year Completion</div>
+                                </div>
+                            </div>
+                            <div class="progress-container">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="bible-progress-fill" style="width: 0%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="summary-card">
+                            <h3><i class="fas fa-pray"></i> Prayer Life</h3>
+                            <div class="summary-stats">
+                                <div class="stat-item">
+                                    <div class="stat-value" id="prayer-streak">0</div>
+                                    <div class="stat-label">Day Streak</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-value" id="prayer-count">0</div>
+                                    <div class="stat-label">This Week</div>
+                                </div>
+                            </div>
+                            <div class="prayer-chart">
+                                <canvas id="prayerFrequencyChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="spiritual-challenges">
+                        <h3><i class="fas fa-trophy"></i> Current Challenges</h3>
+                        <div class="challenges-grid" id="current-challenges">
+                            <div class="challenge-card">
+                                <h4>30-Day Bible Reading</h4>
+                                <p>Complete the New Testament in 30 days</p>
+                                <div class="challenge-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 15%"></div>
+                                    </div>
+                                    <span>15% complete</span>
+                                </div>
+                            </div>
+                            <div class="challenge-card">
+                                <h4>Prayer Journal</h4>
+                                <p>Write in your prayer journal daily</p>
+                                <div class="challenge-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 65%"></div>
+                                    </div>
+                                    <span>13/20 days</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bible Study View -->
+                <div id="spiritual-bible" class="spiritual-view-content">
+                    <div class="bible-study-container">
+                        <div class="bible-reading-plan">
+                            <h3><i class="fas fa-calendar-check"></i> Reading Plan</h3>
+                            <div class="plan-selector">
+                                <select id="bible-plan-selector">
+                                    <option value="chronological">Chronological</option>
+                                    <option value="historical">Historical</option>
+                                    <option value="thematic">Thematic</option>
+                                    <option value="book">Book by Book</option>
+                                    <option value="custom">Custom Plan</option>
+                                </select>
+                                <button id="start-plan" class="btn-secondary">Start Plan</button>
+                            </div>
+                            
+                            <div class="reading-progress">
+                                <div class="progress-header">
+                                    <h4>Current Progress</h4>
+                                    <span id="bible-reading-percentage">0% Complete</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="bible-reading-progress" style="width: 0%"></div>
+                                </div>
+                                <div class="progress-details">
+                                    <div class="detail-item">
+                                        <span class="detail-label">Last Read:</span>
+                                        <span class="detail-value" id="last-bible-reading">Never</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Current Book:</span>
+                                        <span class="detail-value" id="current-bible-book">None</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="today-reading">
+                                <h4>Today's Reading</h4>
+                                <div class="reading-passage" id="todays-reading-passage">
+                                    <p>No reading scheduled for today. Start a plan to begin your journey.</p>
+                                </div>
+                                <div class="reading-actions">
+                                    <button id="mark-as-read" class="btn-primary">
+                                        <i class="fas fa-check"></i> Mark as Read
+                                    </button>
+                                    <button id="add-notes" class="btn-secondary">
+                                        <i class="fas fa-edit"></i> Add Notes
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bible-notes">
+                            <h3><i class="fas fa-book"></i> Study Notes</h3>
+                            <div class="notes-list" id="bible-notes-list">
+                                <div class="empty-state">
+                                    <i class="fas fa-book-open"></i>
+                                    <p>No notes yet. Add your first study note!</p>
+                                </div>
+                            </div>
+                            <button id="add-new-note" class="btn-secondary">
+                                <i class="fas fa-plus"></i> Add New Note
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prayer Life View -->
+                <div id="spiritual-prayer" class="spiritual-view-content">
+                    <div class="prayer-life-container">
+                        <div class="prayer-journal">
+                            <h3><i class="fas fa-praying-hands"></i> Prayer Journal</h3>
+                            <div class="prayer-input">
+                                <textarea id="prayer-text" placeholder="Write your prayers here..."></textarea>
+                                <div class="prayer-actions">
+                                    <button id="save-prayer" class="btn-primary">
+                                        <i class="fas fa-save"></i> Save Prayer
+                                    </button>
+                                    <button id="prayer-reminder" class="btn-secondary">
+                                        <i class="fas fa-bell"></i> Set Reminder
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="prayer-requests">
+                                <h4>Current Prayer Requests</h4>
+                                <div class="requests-list" id="prayer-requests-list">
+                                    <div class="prayer-request">
+                                        <h5>Family Healing</h5>
+                                        <div class="request-date">Added: April 15, 2025</div>
+                                        <div class="request-content">
+                                            Praying for complete healing for my mother who's recovering from surgery.
+                                        </div>
+                                        <div class="request-outcome answered">Answered: April 20, 2025</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="prayer-stats">
+                            <h3><i class="fas fa-chart-line"></i> Prayer Statistics</h3>
+                            <div class="stats-card">
+                                <div class="stat-item">
+                                    <div class="stat-value" id="total-prayers">42</div>
+                                    <div class="stat-label">Total Prayers</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-value" id="answered-prayers">18</div>
+                                    <div class="stat-label">Answered</div>
+                                </div>
+                            </div>
+                            
+                            <div class="prayer-history-chart">
+                                <canvas id="prayerHistoryChart"></canvas>
+                            </div>
+                            
+                            <div class="prayer-types">
+                                <h4>Prayer Types</h4>
+                                <div class="types-grid">
+                                    <div class="type-item">
+                                        <i class="fas fa-hands-praying"></i>
+                                        <span>Intercession</span>
+                                        <span class="type-count" id="intercession-count">12</span>
+                                    </div>
+                                    <div class="type-item">
+                                        <i class="fas fa-thank-you"></i>
+                                        <span>Thanksgiving</span>
+                                        <span class="type-count" id="thanksgiving-count">8</span>
+                                    </div>
+                                    <div class="type-item">
+                                        <i class="fas fa-hand-holding-heart"></i>
+                                        <span>Supplication</span>
+                                        <span class="type-count" id="supplication-count">15</span>
+                                    </div>
+                                    <div class="type-item">
+                                        <i class="fas fa-praise"></i>
+                                        <span>Praise</span>
+                                        <span class="type-count" id="praise-count">7</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Character Study View -->
+                <div id="spiritual-character" class="spiritual-view-content">
+                    <div class="character-study-container">
+                        <div class="character-selection">
+                            <h3><i class="fas fa-user-tie"></i> Biblical Character Studies</h3>
+                            <div class="character-grid">
+                                <div class="character-card" data-character="jesus">
+                                    <div class="character-image">
+                                        <i class="fas fa-cross"></i>
+                                    </div>
+                                    <h4>Jesus Christ</h4>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 25%"></div>
+                                    </div>
+                                    <span class="progress-text">25% Complete</span>
+                                </div>
+                                <!-- More character cards -->
+                            </div>
+                        </div>
+                        
+                        <div class="character-details" id="character-details-container">
+                            <div class="empty-state">
+                                <i class="fas fa-user-tie"></i>
+                                <p>Select a biblical character to begin your study</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Evangelism View -->
+                <div id="spiritual-evangelism" class="spiritual-view-content">
+                    <div class="evangelism-container">
+                        <div class="evangelism-tracker">
+                            <h3><i class="fas fa-hands-helping"></i> Evangelism Tracker</h3>
+                            <div class="tracker-stats">
+                                <div class="stat-item">
+                                    <div class="stat-value" id="conversations-count">5</div>
+                                    <div class="stat-label">Conversations</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-value" id="decisions-count">1</div>
+                                    <div class="stat-label">Decisions</div>
+                                </div>
+                            </div>
+                            
+                            <div class="evangelism-form">
+                                <!-- Form elements -->
+                            </div>
+                        </div>
+                        
+                        <div class="evangelism-history">
+                            <h3><i class="fas fa-history"></i> Evangelism History</h3>
+                            <div class="history-list" id="evangelism-history-list">
+                                <!-- History items -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bible Note Modal -->
+            <div id="bible-note-modal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 id="bible-note-modal-title">New Bible Note</h3>
+                        <button class="close-modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="bible-note-form">
+                            <input type="hidden" id="bible-note-id">
+                            <div class="form-group">
+                                <label for="bible-note-reference">Bible Reference*</label>
+                                <input type="text" id="bible-note-reference" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="bible-note-title">Title*</label>
+                                <input type="text" id="bible-note-title" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="bible-note-content">Notes*</label>
+                                <textarea id="bible-note-content" rows="8" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="bible-note-tags">Tags</label>
+                                <input type="text" id="bible-note-tags" placeholder="Add tags (e.g., faith, salvation, prophecy)">
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn-primary">Save Note</button>
+                                <button type="button" class="btn-secondary" id="cancel-bible-note">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

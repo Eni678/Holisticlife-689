@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Planner | Holistic Life Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!--#include virtual="sidebar.html" -->
+        <nav class="sidebar">
+            <div class="profile">
+                <div class="profile-img">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <h3>Enilama Oshoriamhe</h3>
+                <p>Biochemist | Data Engineer | Developer</p>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li><a href="daily-planner.html"><i class="fas fa-calendar-day"></i> Daily Planner</a></li>
+                <li><a href="goals.html"><i class="fas fa-bullseye"></i> Goals & Challenges</a></li>
+                <li><a href="reflection.html"><i class="fas fa-book"></i> Journal & Reflection</a></li>
+                <li><a href="professional.html"><i class="fas fa-briefcase"></i> Professional Life</a></li>
+                <li><a href="finance.html"><i class="fas fa-chart-line"></i> Financial Tracker</a></li>
+                <li><a href="learning.html"><i class="fas fa-graduation-cap"></i> Learning & Growth</a></li>
+                <li><a href="spiritual.html"><i class="fas fa-pray"></i> Spiritual Journey</a></li>
+                <li><a href="relationships.html"><i class="fas fa-users"></i> Relationships</a></li>
+                <li><a href="analytics.html"><i class="fas fa-chart-bar"></i> Growth Analytics</a></li>
+                <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+            </ul>
+            
+            <div class="logout">
+                <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </nav>
+        
+        <main class="content">
+            <!--#include virtual="header.html" -->
+            <header>
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search...">
+                </div>
+                
+                <div class="header-right">
+                    <div class="date-time">
+                        <span id="current-date">April 20, 2025</span>
+                        <span id="current-time">12:00 PM</span>
+                    </div>
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                </div>
+            </header>
+            
+            <section class="section" id="learning">
+                <div class="learning-header">
+                <h2>Learning & Growth</h2>
+                <div class="learning-controls">
+                    <button id="add-learning-resource" class="btn-primary">
+                    <i class="fas fa-plus"></i> Add Resource
+                    </button>
+                    <button id="learning-settings" class="btn-secondary">
+                    <i class="fas fa-cog"></i> Settings
+                    </button>
+                </div>
+                </div>
+            
+                <div class="learning-container">
+                <!-- Skill Tracking -->
+                <div class="skill-tracking-section">
+                    <div class="section-header">
+                    <h3><i class="fas fa-chart-line"></i> Skill Development</h3>
+                    <div class="skill-filter">
+                        <select id="skill-category-filter">
+                        <option value="all">All Categories</option>
+                        <option value="technical">Technical</option>
+                        <option value="professional">Professional</option>
+                        <option value="personal">Personal</option>
+                        </select>
+                    </div>
+                    </div>
+                    
+                    <div class="skills-grid">
+                    <div class="skill-card">
+                        <div class="skill-header">
+                        <h4>Data Engineering</h4>
+                        <div class="skill-level">Intermediate</div>
+                        </div>
+                        <div class="skill-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 65%"></div>
+                        </div>
+                        <span>65%</span>
+                        </div>
+                        <div class="skill-meta">
+                        <div class="meta-item">
+                            <i class="fas fa-clock"></i>
+                            <span>15 hours</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-calendar"></i>
+                            <span>Last: 2 days ago</span>
+                        </div>
+                        </div>
+                        <div class="skill-actions">
+                        <button class="btn-icon skill-edit">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn-icon skill-log">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                        </div>
+                    </div>
+                    <!-- More skill cards will be added dynamically -->
+                    </div>
+                    
+                    <button id="add-new-skill" class="btn-secondary">
+                    <i class="fas fa-plus"></i> Add New Skill
+                    </button>
+                </div>
+            
+                <!-- Learning Resources -->
+                <div class="resources-section">
+                    <div class="section-header">
+                    <h3><i class="fas fa-book-open"></i> Learning Resources</h3>
+                    <div class="resource-filter">
+                        <input type="text" id="resource-search" placeholder="Search resources...">
+                    </div>
+                    </div>
+                    
+                    <div class="resources-tabs">
+                    <button class="resource-tab active" data-resource="all">All</button>
+                    <button class="resource-tab" data-resource="books">Books</button>
+                    <button class="resource-tab" data-resource="courses">Courses</button>
+                    <button class="resource-tab" data-resource="articles">Articles</button>
+                    <button class="resource-tab" data-resource="videos">Videos</button>
+                    </div>
+                    
+                    <div class="resources-grid">
+                    <div class="resource-card" data-type="book" data-status="completed">
+                        <div class="resource-badge book">Book</div>
+                        <div class="resource-status completed">Completed</div>
+                        <div class="resource-image">
+                        <img src="https://m.media-amazon.com/images/I/41d1gVUK1yL._SY425_.jpg" alt="Designing Data-Intensive Applications">
+                        </div>
+                        <div class="resource-content">
+                        <h4>Designing Data-Intensive Applications</h4>
+                        <div class="resource-meta">
+                            <span class="resource-author">Martin Kleppmann</span>
+                            <span class="resource-pages">600 pages</span>
+                        </div>
+                        <div class="resource-progress">
+                            <div class="progress-bar">
+                            <div class="progress-fill" style="width: 100%"></div>
+                            </div>
+                        </div>
+                        <div class="resource-actions">
+                            <button class="btn-icon resource-review">
+                            <i class="fas fa-star"></i>
+                            </button>
+                            <button class="btn-icon resource-notes">
+                            <i class="fas fa-file-alt"></i>
+                            </button>
+                        </div>
+                        </div>
+                    </div>
+                    <!-- More resource cards will be added dynamically -->
+                    </div>
+                </div>
+            
+                <!-- Knowledge Management -->
+                <div class="knowledge-section">
+                    <div class="section-header">
+                    <h3><i class="fas fa-lightbulb"></i> Knowledge Base</h3>
+                    <div class="knowledge-actions">
+                        <button id="create-note" class="btn-icon">
+                        <i class="fas fa-plus"></i>
+                        </button>
+                        <button id="organize-notes" class="btn-icon">
+                        <i class="fas fa-folder"></i>
+                        </button>
+                    </div>
+                    </div>
+                    
+                    <div class="knowledge-tabs">
+                    <button class="knowledge-tab active" data-knowledge="recent">Recent</button>
+                    <button class="knowledge-tab" data-knowledge="favorites">Favorites</button>
+                    <button class="knowledge-tab" data-knowledge="categories">Categories</button>
+                    </div>
+                    
+                    <div class="notes-list">
+                    <div class="note-card">
+                        <div class="note-header">
+                        <h4>Data Pipeline Best Practices</h4>
+                        <div class="note-meta">
+                            <span class="note-category">Data Engineering</span>
+                            <span class="note-date">2 days ago</span>
+                        </div>
+                        </div>
+                        <div class="note-preview">
+                        Key principles for building reliable data pipelines: idempotency, fault tolerance, monitoring...
+                        </div>
+                        <div class="note-actions">
+                        <button class="btn-icon note-edit">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn-icon note-favorite">
+                            <i class="fas fa-star"></i>
+                        </button>
+                        </div>
+                    </div>
+                    <!-- More note cards will be added dynamically -->
+                    </div>
+                </div>
+                </div>
+            
+                <!-- Resource Modal -->
+                <div id="resource-modal" class="modal">
+                <div class="modal-content large">
+                    <div class="modal-header">
+                    <h3>Add Learning Resource</h3>
+                    <button class="close-modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                    <form id="resource-form">
+                        <div class="form-group">
+                        <label for="resource-title">Title*</label>
+                        <input type="text" id="resource-title" required>
+                        </div>
+                        
+                        <div class="form-row">
+                        <div class="form-group">
+                            <label for="resource-type">Type*</label>
+                            <select id="resource-type" required>
+                            <option value="">Select type</option>
+                            <option value="book">Book</option>
+                            <option value="course">Course</option>
+                            <option value="article">Article</option>
+                            <option value="video">Video</option>
+                            <option value="podcast">Podcast</option>
+                            <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="resource-status">Status</label>
+                            <select id="resource-status">
+                            <option value="not-started">Not Started</option>
+                            <option value="in-progress">In Progress</option>
+                            <option value="completed">Completed</option>
+                            <option value="abandoned">Abandoned</option>
+                            </select>
+                        </div>
+                        </div>
+                        
+                        <div class="form-row">
+                        <div class="form-group">
+                            <label for="resource-author">Author/Creator</label>
+                            <input type="text" id="resource-author">
+                        </div>
+                        <div class="form-group">
+                            <label for="resource-url">URL</label>
+                            <input type="url" id="resource-url">
+                        </div>
+                        </div>
+                        
+                        <div class="form-row">
+                        <div class="form-group">
+                            <label for="resource-pages">Pages/Duration</label>
+                            <input type="text" id="resource-pages" placeholder="e.g., 300 pages or 8 hours">
+                        </div>
+                        <div class="form-group">
+                            <label for="resource-progress">Progress (%)</label>
+                            <input type="number" id="resource-progress" min="0" max="100">
+                        </div>
+                        </div>
+                        
+                        <div class="form-group">
+                        <label for="resource-description">Description/Notes</label>
+                        <textarea id="resource-description" rows="4"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                        <label for="resource-skills">Related Skills</label>
+                        <input type="text" id="resource-skills" placeholder="Add skills separated by commas">
+                        </div>
+                        
+                        <div class="form-actions">
+                        <button type="submit" class="btn-primary">Save Resource</button>
+                        <button type="button" class="btn-secondary" id="cancel-resource">Cancel</button>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+                </div>
+            
+                <!-- Skill Modal -->
+                <div id="skill-modal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h3>Add New Skill</h3>
+                    <button class="close-modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                    <form id="skill-form">
+                        <div class="form-group">
+                        <label for="skill-name">Skill Name*</label>
+                        <input type="text" id="skill-name" required>
+                        </div>
+                        
+                        <div class="form-row">
+                        <div class="form-group">
+                            <label for="skill-category">Category*</label>
+                            <select id="skill-category" required>
+                            <option value="">Select category</option>
+                            <option value="technical">Technical</option>
+                            <option value="professional">Professional</option>
+                            <option value="personal">Personal</option>
+                            <option value="creative">Creative</option>
+                            <option value="physical">Physical</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="skill-level">Current Level*</label>
+                            <select id="skill-level" required>
+                            <option value="beginner">Beginner</option>
+                            <option value="intermediate">Intermediate</option>
+                            <option value="advanced">Advanced</option>
+                            <option value="expert">Expert</option>
+                            </select>
+                        </div>
+                        </div>
+                        
+                        <div class="form-group">
+                        <label for="skill-goal">Goal Level</label>
+                        <select id="skill-goal">
+                            <option value="">No specific goal</option>
+                            <option value="intermediate">Intermediate</option>
+                            <option value="advanced">Advanced</option>
+                            <option value="expert">Expert</option>
+                        </select>
+                        </div>
+                        
+                        <div class="form-group">
+                        <label for="skill-description">Description</label>
+                        <textarea id="skill-description" rows="3"></textarea>
+                        </div>
+                        
+                        <div class="form-actions">
+                        <button type="submit" class="btn-primary">Save Skill</button>
+                        <button type="button" class="btn-secondary" id="cancel-skill">Cancel</button>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+                </div>
+            
+                <!-- Note Modal -->
+                <div id="note-modal" class="modal">
+                <div class="modal-content large">
+                    <div class="modal-header">
+                    <h3 id="note-modal-title">New Note</h3>
+                    <button class="close-modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                    <form id="note-form">
+                        <div class="form-group">
+                        <label for="note-title">Title*</label>
+                        <input type="text" id="note-title" required>
+                        </div>
+                        
+                        <div class="form-row">
+                        <div class="form-group">
+                            <label for="note-category">Category</label>
+                            <select id="note-category">
+                            <option value="">No category</option>
+                            <option value="technical">Technical</option>
+                            <option value="ideas">Ideas</option>
+                            <option value="reference">Reference</option>
+                            <option value="personal">Personal</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="note-tags">Tags</label>
+                            <input type="text" id="note-tags" placeholder="Add tags separated by commas">
+                        </div>
+                        </div>
+                        
+                        <div class="form-group">
+                        <label for="note-content">Content*</label>
+                        <textarea id="note-content" rows="12"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                        <label for="note-related">Related Resources</label>
+                        <select id="note-related" multiple>
+                            <option value="resource1">Designing Data-Intensive Applications</option>
+                            <option value="resource2">Advanced Python Course</option>
+                            <option value="resource3">System Design Interview</option>
+                        </select>
+                        </div>
+                        
+                        <div class="form-actions">
+                        <button type="submit" class="btn-primary">Save Note</button>
+                        <button type="button" class="btn-secondary" id="cancel-note">Cancel</button>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+                </div>
+            </section>            
+            
+            <!-- Task Modal from original -->
+        </main>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

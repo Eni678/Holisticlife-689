@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Planner | Holistic Life Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!--#include virtual="sidebar.html" -->
+        <nav class="sidebar">
+            <div class="profile">
+                <div class="profile-img">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <h3>Enilama Oshoriamhe</h3>
+                <p>Biochemist | Data Engineer | Developer</p>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li><a href="daily-planner.html"><i class="fas fa-calendar-day"></i> Daily Planner</a></li>
+                <li><a href="goals.html"><i class="fas fa-bullseye"></i> Goals & Challenges</a></li>
+                <li><a href="reflection.html"><i class="fas fa-book"></i> Journal & Reflection</a></li>
+                <li><a href="professional.html"><i class="fas fa-briefcase"></i> Professional Life</a></li>
+                <li><a href="finance.html"><i class="fas fa-chart-line"></i> Financial Tracker</a></li>
+                <li><a href="learning.html"><i class="fas fa-graduation-cap"></i> Learning & Growth</a></li>
+                <li><a href="spiritual.html"><i class="fas fa-pray"></i> Spiritual Journey</a></li>
+                <li><a href="relationships.html"><i class="fas fa-users"></i> Relationships</a></li>
+                <li><a href="analytics.html"><i class="fas fa-chart-bar"></i> Growth Analytics</a></li>
+                <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+            </ul>
+            
+            <div class="logout">
+                <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </nav>
+        
+        <main class="content">
+            <!--#include virtual="header.html" -->
+            <header>
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search...">
+                </div>
+                
+                <div class="header-right">
+                    <div class="date-time">
+                        <span id="current-date">April 20, 2025</span>
+                        <span id="current-time">12:00 PM</span>
+                    </div>
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>               </div>
+            </header>
+            
+            <section class="section" id="reflection">
+                <div class="reflection-header">
+                <h2>Journal & Reflection</h2>
+                <div class="reflection-controls">
+                    <div class="reflection-date">
+                    <h3 id="current-reflection-date">April 23, 2025</h3>
+                    </div>
+                    <div class="reflection-actions">
+                    <button id="quick-journal" class="btn-primary">
+                        <i class="fas fa-plus"></i> Quick Entry
+                    </button>
+                    <button id="review-dashboard" class="btn-secondary">
+                        <i class="fas fa-chart-pie"></i> Review Dashboard
+                    </button>
+                    </div>
+                </div>
+                </div>
+            
+                <div class="reflection-container">
+                <!-- Daily Reflection -->
+                <div class="daily-reflection-section">
+                    <div class="reflection-tabs">
+                    <button class="reflection-tab active" data-tab="journal">Journal</button>
+                    <button class="reflection-tab" data-tab="gratitude">Gratitude</button>
+                    <button class="reflection-tab" data-tab="lessons">Lessons Learned</button>
+                    </div>
+            
+                    <div class="reflection-content">
+                    <!-- Journal Tab -->
+                    <div id="journal-tab" class="reflection-tab-content active">
+                        <div class="journal-prompt">
+                        <h4>Today's Prompt</h4>
+                        <p id="daily-prompt">What was the most meaningful moment of your day and why?</p>
+                        </div>
+                        <div class="journal-editor">
+                        <textarea id="journal-entry" placeholder="Write your thoughts here..."></textarea>
+                        <div class="mood-selector">
+                            <span>Mood:</span>
+                            <div class="mood-options">
+                            <input type="radio" name="mood" id="mood-awful" value="1">
+                            <label for="mood-awful" title="Awful">😞</label>
+                            
+                            <input type="radio" name="mood" id="mood-bad" value="2">
+                            <label for="mood-bad" title="Bad">😕</label>
+                            
+                            <input type="radio" name="mood" id="mood-neutral" value="3" checked>
+                            <label for="mood-neutral" title="Neutral">😐</label>
+                            
+                            <input type="radio" name="mood" id="mood-good" value="4">
+                            <label for="mood-good" title="Good">🙂</label>
+                            
+                            <input type="radio" name="mood" id="mood-great" value="5">
+                            <label for="mood-great" title="Great">😁</label>
+                            </div>
+                        </div>
+                        <div class="journal-tags">
+                            <input type="text" id="journal-tags-input" placeholder="Add tags (e.g., work, family, growth)">
+                            <div id="journal-tags-container" class="tags-container"></div>
+                        </div>
+                        <button id="save-journal" class="btn-primary">Save Journal</button>
+                        </div>
+                    </div>
+            
+                    <!-- Gratitude Tab -->
+                    <div id="gratitude-tab" class="reflection-tab-content">
+                        <div class="gratitude-prompt">
+                        <h4>Today I'm grateful for...</h4>
+                        <p>List 3-5 things you appreciate today, no matter how small</p>
+                        </div>
+                        <div class="gratitude-entries">
+                        <div class="gratitude-item">
+                            <input type="text" placeholder="1. E.g., A sunny morning" class="gratitude-input">
+                            <button class="btn-icon gratitude-voice">
+                            <i class="fas fa-microphone"></i>
+                            </button>
+                        </div>
+                        <div class="gratitude-item">
+                            <input type="text" placeholder="2. E.g., A good conversation" class="gratitude-input">
+                            <button class="btn-icon gratitude-voice">
+                            <i class="fas fa-microphone"></i>
+                            </button>
+                        </div>
+                        <div class="gratitude-item">
+                            <input type="text" placeholder="3. E.g., Progress on my project" class="gratitude-input">
+                            <button class="btn-icon gratitude-voice">
+                            <i class="fas fa-microphone"></i>
+                            </button>
+                        </div>
+                        <div class="gratitude-item">
+                            <input type="text" placeholder="4. (Optional)" class="gratitude-input">
+                            <button class="btn-icon gratitude-voice">
+                            <i class="fas fa-microphone"></i>
+                            </button>
+                        </div>
+                        <div class="gratitude-item">
+                            <input type="text" placeholder="5. (Optional)" class="gratitude-input">
+                            <button class="btn-icon gratitude-voice">
+                            <i class="fas fa-microphone"></i>
+                            </button>
+                        </div>
+                        </div>
+                        <button id="save-gratitude" class="btn-primary">Save Gratitude List</button>
+                    </div>
+            
+                    <!-- Lessons Learned Tab -->
+                    <div id="lessons-tab" class="reflection-tab-content">
+                        <div class="lessons-prompt">
+                        <h4>What did you learn today?</h4>
+                        <p>Capture key insights, mistakes, and growth opportunities</p>
+                        </div>
+                        <div class="lessons-form">
+                        <div class="form-group">
+                            <label>What went well?</label>
+                            <textarea id="went-well" placeholder="Describe successes and positive experiences"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>What could be improved?</label>
+                            <textarea id="could-improve" placeholder="Identify areas for growth"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Key Takeaways</label>
+                            <textarea id="key-takeaways" placeholder="Summarize your main lessons"></textarea>
+                        </div>
+                        <button id="save-lessons" class="btn-primary">Save Lessons</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            
+                <!-- Reflection Analytics -->
+                <div class="reflection-analytics">
+                    <div class="analytics-card">
+                    <h4><i class="fas fa-chart-line"></i> Reflection Stats</h4>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                        <div class="stat-value" id="streak-count">42</div>
+                        <div class="stat-label">Day Streak</div>
+                        </div>
+                        <div class="stat-item">
+                        <div class="stat-value" id="journal-count">128</div>
+                        <div class="stat-label">Total Entries</div>
+                        </div>
+                    </div>
+                    <div class="mood-chart">
+                        <canvas id="moodTrendChart"></canvas>
+                    </div>
+                    </div>
+                    
+                    <div class="analytics-card">
+                    <h4><i class="fas fa-lightbulb"></i> Insights</h4>
+                    <div id="ai-insights" class="insights-content">
+                        <p>Based on your recent entries, you seem most energized when working on creative projects in the morning hours.</p>
+                        <p>Your mood tends to be highest on days when you exercise and connect with family.</p>
+                    </div>
+                    <button id="generate-insights" class="btn-secondary">
+                        <i class="fas fa-bolt"></i> Generate New Insights
+                    </button>
+                    </div>
+                </div>
+                </div>
+            
+                <!-- Review Dashboard Modal -->
+                <div id="review-modal" class="modal">
+                <div class="modal-content large">
+                    <div class="modal-header">
+                    <h3>Periodic Review Dashboard</h3>
+                    <button class="close-modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                    <div class="review-tabs">
+                        <button class="review-tab active" data-review="weekly">Weekly</button>
+                        <button class="review-tab" data-review="monthly">Monthly</button>
+                        <button class="review-tab" data-review="quarterly">Quarterly</button>
+                    </div>
+                    
+                    <div class="review-content">
+                        <div id="weekly-review" class="review-tab-content active">
+                        <div class="review-section">
+                            <h4>Weekly Highlights</h4>
+                            <div id="weekly-highlights" class="highlight-cards"></div>
+                        </div>
+                        <div class="review-section">
+                            <h4>Mood & Energy Trends</h4>
+                            <div class="chart-container">
+                            <canvas id="weekly-mood-chart"></canvas>
+                            </div>
+                        </div>
+                        <div class="review-section">
+                            <h4>Key Themes</h4>
+                            <div id="weekly-themes" class="theme-cloud"></div>
+                        </div>
+                        </div>
+                        
+                        <div id="monthly-review" class="review-tab-content">
+                        <div class="review-section">
+                            <h4>Monthly Progress</h4>
+                            <div class="progress-grid">
+                            <div class="progress-item">
+                                <h5>Goals Progress</h5>
+                                <div class="progress-bar">
+                                <div class="progress-fill" style="width: 65%"></div>
+                                </div>
+                                <span>65% completed</span>
+                            </div>
+                            <div class="progress-item">
+                                <h5>Habit Consistency</h5>
+                                <div class="progress-bar">
+                                <div class="progress-fill" style="width: 78%"></div>
+                                </div>
+                                <span>78% consistent</span>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="review-section">
+                            <h4>Monthly Insights</h4>
+                            <div id="monthly-insights" class="insights-list"></div>
+                        </div>
+                        </div>
+                        
+                        <div id="quarterly-review" class="review-tab-content">
+                        <div class="review-section">
+                            <h4>Quarterly Reflection</h4>
+                            <div class="reflection-prompts">
+                            <div class="prompt-item">
+                                <h5>What are you most proud of accomplishing?</h5>
+                                <textarea class="prompt-response"></textarea>
+                            </div>
+                            <div class="prompt-item">
+                                <h5>What major lessons have you learned?</h5>
+                                <textarea class="prompt-response"></textarea>
+                            </div>
+                            <div class="prompt-item">
+                                <h5>What will you focus on next quarter?</h5>
+                                <textarea class="prompt-response"></textarea>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="review-section">
+                            <h4>Quarterly Goals Review</h4>
+                            <div id="quarterly-goals" class="goals-review"></div>
+                        </div>
+                        </div>
+                    </div>
+                    
+                    <div class="review-actions">
+                        <button class="btn-primary" id="export-review">
+                        <i class="fas fa-file-export"></i> Export Review
+                        </button>
+                        <button class="btn-secondary" id="save-review">
+                        <i class="fas fa-save"></i> Save Review
+                        </button>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </section>
+
+            
+            <!-- Task Modal from original -->
+        </main>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Planner | Holistic Life Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <nav class="sidebar">
+            <div class="profile">
+                <div class="profile-img">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <h3>Enilama Oshoriamhe</h3>
+                <p>Biochemist | Data Engineer | Developer</p>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li><a href="daily-planner.html"><i class="fas fa-calendar-day"></i> Daily Planner</a></li>
+                <li><a href="goals.html"><i class="fas fa-bullseye"></i> Goals & Challenges</a></li>
+                <li><a href="reflection.html"><i class="fas fa-book"></i> Journal & Reflection</a></li>
+                <li><a href="professional.html"><i class="fas fa-briefcase"></i> Professional Life</a></li>
+                <li><a href="finance.html"><i class="fas fa-chart-line"></i> Financial Tracker</a></li>
+                <li><a href="learning.html"><i class="fas fa-graduation-cap"></i> Learning & Growth</a></li>
+                <li><a href="spiritual.html"><i class="fas fa-pray"></i> Spiritual Journey</a></li>
+                <li><a href="relationships.html"><i class="fas fa-users"></i> Relationships</a></li>
+                <li><a href="analytics.html"><i class="fas fa-chart-bar"></i> Growth Analytics</a></li>
+                <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+            </ul>
+            
+            <div class="logout">
+                <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </nav>
+        <!--#include virtual="sidebar.html" -->
+        
+        <main class="content">
+            <header>
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search...">
+                </div>
+                
+                <div class="header-right">
+                    <div class="date-time">
+                        <span id="current-date">April 20, 2025</span>
+                        <span id="current-time">12:00 PM</span>
+                    </div>
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                </div>
+            </header>
+            <!--#include virtual="header.html" -->
+            
+            <section class="section" id="daily">
+                <div class="planner-header">
+                    <h2>Daily Planner</h2>
+                    <div class="planner-controls">
+                    <div class="date-navigation">
+                        <button id="prev-day" class="btn-date-nav">
+                        <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <h3 id="current-planner-date">April 23, 2025</h3>
+                        <button id="next-day" class="btn-date-nav">
+                        <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <button id="quick-add" class="btn-primary">
+                        <i class="fas fa-plus"></i> Quick Add
+                    </button>
+                    </div>
+                </div>
+    
+                <div class="planner-container">
+                    <!-- Time Blocking Section -->
+                    <div class="time-blocking-section">
+                    <div class="section-header">
+                        <h3><i class="fas fa-clock"></i> Time Blocking</h3>
+                        <div class="timezone-display">Timezone: WAT (UTC+1)</div>
+                    </div>
+                    
+                    <div class="time-blocks-container">
+                        <div class="time-scale">
+                        <!-- This will be populated by JavaScript -->
+                        </div>
+                        <div class="time-blocks">
+                        <!-- Time blocks will be populated by JavaScript -->
+                        </div>
+                    </div>
+                    </div>
+    
+                    <!-- Task Management Section -->
+                    <div class="task-management-section">
+                    <div class="task-tabs">
+                        <button class="task-tab active" data-tab="inbox">Inbox</button>
+                        <button class="task-tab" data-tab="scheduled">Scheduled</button>
+                        <button class="task-tab" data-tab="priority">Priority Matrix</button>
+                    </div>
+    
+                    <div class="task-content">
+                        <!-- Inbox Tab -->
+                        <div id="inbox-tab" class="task-tab-content active">
+                        <div class="task-input-container">
+                            <input type="text" id="new-task-input" placeholder="What needs to be done?">
+                            <button id="add-task-btn" class="btn-icon">
+                            <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                        <div id="inbox-tasks" class="task-list"></div>
+                        </div>
+    
+                        <!-- Scheduled Tab -->
+                        <div id="scheduled-tab" class="task-tab-content">
+                        <div id="scheduled-tasks" class="task-list"></div>
+                        </div>
+    
+                        <!-- Priority Matrix Tab -->
+                        <div id="priority-tab" class="task-tab-content">
+                        <div class="priority-matrix">
+                            <div class="quadrant urgent-important">
+                            <h4>Urgent & Important</h4>
+                            <div class="matrix-tasks" data-quadrant="urgent-important"></div>
+                            </div>
+                            <div class="quadrant not-urgent-important">
+                            <h4>Not Urgent & Important</h4>
+                            <div class="matrix-tasks" data-quadrant="not-urgent-important"></div>
+                            </div>
+                            <div class="quadrant urgent-not-important">
+                            <h4>Urgent & Not Important</h4>
+                            <div class="matrix-tasks" data-quadrant="urgent-not-important"></div>
+                            </div>
+                            <div class="quadrant not-urgent-not-important">
+                            <h4>Not Urgent & Not Important</h4>
+                            <div class="matrix-tasks" data-quadrant="not-urgent-not-important"></div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+    
+                    <!-- Planner Stats & Analytics -->
+                    <div class="planner-analytics">
+                    <div class="analytics-card">
+                        <h4>Daily Focus</h4>
+                        <div class="focus-metric">
+                        <div class="metric-value" id="focus-score">82%</div>
+                        <div class="metric-label">Alignment Score</div>
+                        </div>
+                        <div class="focus-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Time Blocked:</span>
+                            <span class="detail-value" id="time-blocked">6.5h</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Deep Work:</span>
+                            <span class="detail-value" id="deep-work">3.2h</span>
+                        </div>
+                        </div>
+                    </div>
+                    
+                    <div class="analytics-card">
+                        <h4>Task Completion</h4>
+                        <div class="completion-chart">
+                        <canvas id="completionChart"></canvas>
+                        </div>
+                        <div class="completion-stats">
+                        <div class="stat-item">
+                            <span class="stat-value" id="tasks-completed">12</span>
+                            <span class="stat-label">Completed</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value" id="tasks-remaining">5</span>
+                            <span class="stat-label">Remaining</span>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+    
+                <!-- Task Detail Modal -->
+                <div id="task-modal" class="modal">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Task Details</h3>
+                        <button class="close-modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="task-form">
+                        <div class="form-group">
+                            <label for="task-title">Title</label>
+                            <input type="text" id="task-title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="task-description">Description</label>
+                            <textarea id="task-description" rows="3"></textarea>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                            <label for="task-due-date">Due Date</label>
+                            <input type="date" id="task-due-date">
+                            </div>
+                            <div class="form-group">
+                            <label for="task-priority">Priority</label>
+                            <select id="task-priority">
+                                <option value="low">Low</option>
+                                <option value="medium" selected>Medium</option>
+                                <option value="high">High</option>
+                            </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                            <label for="task-estimate">Time Estimate</label>
+                            <input type="text" id="task-estimate" placeholder="e.g. 2h 30m">
+                            </div>
+                            <div class="form-group">
+                            <label for="task-energy">Energy Level</label>
+                            <select id="task-energy">
+                                <option value="low">Low Energy</option>
+                                <option value="medium" selected>Medium Energy</option>
+                                <option value="high">High Energy</option>
+                            </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Eisenhower Matrix</label>
+                            <div class="eisenhower-radio">
+                            <label>
+                                <input type="radio" name="eisenhower" value="urgent-important">
+                                <span>Urgent & Important</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="eisenhower" value="not-urgent-important">
+                                <span>Not Urgent & Important</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="eisenhower" value="urgent-not-important">
+                                <span>Urgent & Not Important</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="eisenhower" value="not-urgent-not-important">
+                                <span>Not Urgent & Not Important</span>
+                            </label>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn-primary">Save Task</button>
+                            <button type="button" class="btn-secondary" id="cancel-task">Cancel</button>
+                        </div>
+                        </form>
+                    </div>
+                    </div>
+                </div>
+                </section>
+            
+            <!-- Task Modal from original -->
+        </main>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

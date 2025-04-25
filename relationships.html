@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Planner | Holistic Life Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!--#include virtual="sidebar.html" -->
+        <nav class="sidebar">
+            <div class="profile">
+                <div class="profile-img">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <h3>Enilama Oshoriamhe</h3>
+                <p>Biochemist | Data Engineer | Developer</p>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li><a href="daily-planner.html"><i class="fas fa-calendar-day"></i> Daily Planner</a></li>
+                <li><a href="goals.html"><i class="fas fa-bullseye"></i> Goals & Challenges</a></li>
+                <li><a href="reflection.html"><i class="fas fa-book"></i> Journal & Reflection</a></li>
+                <li><a href="professional.html"><i class="fas fa-briefcase"></i> Professional Life</a></li>
+                <li><a href="finance.html"><i class="fas fa-chart-line"></i> Financial Tracker</a></li>
+                <li><a href="learning.html"><i class="fas fa-graduation-cap"></i> Learning & Growth</a></li>
+                <li><a href="spiritual.html"><i class="fas fa-pray"></i> Spiritual Journey</a></li>
+                <li><a href="relationships.html"><i class="fas fa-users"></i> Relationships</a></li>
+                <li><a href="analytics.html"><i class="fas fa-chart-bar"></i> Growth Analytics</a></li>
+                <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+            </ul>
+            
+            <div class="logout">
+                <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </nav>
+        
+        <main class="content">
+            <!--#include virtual="header.html" -->
+            <header>
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search...">
+                </div>
+                
+                <div class="header-right">
+                    <div class="date-time">
+                        <span id="current-date">April 20, 2025</span>
+                        <span id="current-time">12:00 PM</span>
+                    </div>
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                </div>
+            </header>
+            
+            <section class="section" id="relationships">
+                <div class="relationships-header">
+                    <h2>Relationships Management</h2>
+                    <div class="relationships-controls">
+                        <button id="add-relationship" class="btn-primary">
+                            <i class="fas fa-plus"></i> Add Relationship
+                        </button>
+                        <div class="relationship-filter">
+                            <select id="relationship-category-filter">
+                                <option value="all">All Categories</option>
+                                <option value="family">Family</option>
+                                <option value="romantic">Romantic</option>
+                                <option value="friends">Friends</option>
+                                <option value="professional">Professional</option>
+                                <option value="spiritual">Spiritual</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relationships-container">
+                    <!-- Relationships Summary -->
+                    <div class="relationships-summary">
+                        <div class="summary-card">
+                            <h3><i class="fas fa-users"></i> Relationship Network</h3>
+                            <div class="summary-stats">
+                                <div class="stat-item">
+                                    <div class="stat-value" id="total-relationships">0</div>
+                                    <div class="stat-label">Total</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-value" id="recent-interactions">0</div>
+                                    <div class="stat-label">Recent</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-value" id="important-relationships">0</div>
+                                    <div class="stat-label">Important</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="summary-card">
+                            <h3><i class="fas fa-heart"></i> Emotional Connections</h3>
+                            <div class="sentiment-chart">
+                                <canvas id="sentimentChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Relationships List -->
+                    <div class="relationships-list">
+                        <div class="relationship-cards" id="relationship-cards-container">
+                            <!-- Relationship cards will be populated here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Relationship Detail Modal -->
+                <div id="relationship-modal" class="modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 id="relationship-modal-title">New Relationship</h3>
+                            <button class="close-modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="relationship-form">
+                                <div class="form-group">
+                                    <label for="relationship-name">Name*</label>
+                                    <input type="text" id="relationship-name" required>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="relationship-category">Category*</label>
+                                        <select id="relationship-category" required>
+                                            <option value="">Select category</option>
+                                            <option value="family">Family</option>
+                                            <option value="romantic">Romantic</option>
+                                            <option value="friends">Friends</option>
+                                            <option value="professional">Professional</option>
+                                            <option value="spiritual">Spiritual</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="relationship-importance">Importance</label>
+                                        <select id="relationship-importance">
+                                            <option value="low">Low</option>
+                                            <option value="medium" selected>Medium</option>
+                                            <option value="high">High</option>
+                                            <option value="critical">Critical</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="relationship-contact">Contact Info</label>
+                                    <input type="text" id="relationship-contact" placeholder="Email, phone, etc.">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="relationship-notes">Notes</label>
+                                    <textarea id="relationship-notes" rows="3" placeholder="Key details about this person"></textarea>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label>Current Emotional State</label>
+                                    <div class="emotion-selector">
+                                        <div class="emotion-options">
+                                            <input type="radio" name="emotion" id="emotion-positive" value="positive">
+                                            <label for="emotion-positive" title="Positive">😊 Positive</label>
+                                            
+                                            <input type="radio" name="emotion" id="emotion-neutral" value="neutral" checked>
+                                            <label for="emotion-neutral" title="Neutral">😐 Neutral</label>
+                                            
+                                            <input type="radio" name="emotion" id="emotion-negative" value="negative">
+                                            <label for="emotion-negative" title="Negative">😞 Negative</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="relationship-tags">Tags</label>
+                                    <input type="text" id="relationship-tags" placeholder="Add tags (e.g., mentor, childhood friend)">
+                                    <div id="relationship-tags-container" class="tags-container"></div>
+                                </div>
+                                
+                                <div class="form-actions">
+                                    <button type="submit" class="btn-primary">Save Relationship</button>
+                                    <button type="button" class="btn-secondary" id="cancel-relationship">Cancel</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interaction Modal -->
+                <div id="interaction-modal" class="modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 id="interaction-modal-title">Log Interaction</h3>
+                            <button class="close-modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="interaction-form">
+                                <input type="hidden" id="interaction-relationship-id">
+                                
+                                <div class="form-group">
+                                    <label for="interaction-date">Date*</label>
+                                    <input type="date" id="interaction-date" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="interaction-type">Interaction Type*</label>
+                                    <select id="interaction-type" required>
+                                        <option value="">Select type</option>
+                                        <option value="in-person">In Person</option>
+                                        <option value="phone">Phone Call</option>
+                                        <option value="video">Video Chat</option>
+                                        <option value="message">Message</option>
+                                        <option value="email">Email</option>
+                                        <option value="social-media">Social Media</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="interaction-duration">Duration (minutes)</label>
+                                    <input type="number" id="interaction-duration" min="0">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label>Your Emotional Response</label>
+                                    <div class="emotion-selector">
+                                        <div class="emotion-options">
+                                            <input type="radio" name="interaction-emotion" id="interaction-positive" value="positive">
+                                            <label for="interaction-positive" title="Positive">😊 Positive</label>
+                                            
+                                            <input type="radio" name="interaction-emotion" id="interaction-neutral" value="neutral" checked>
+                                            <label for="interaction-neutral" title="Neutral">😐 Neutral</label>
+                                            
+                                            <input type="radio" name="interaction-emotion" id="interaction-negative" value="negative">
+                                            <label for="interaction-negative" title="Negative">😞 Negative</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="interaction-notes">Notes*</label>
+                                    <textarea id="interaction-notes" rows="4" required placeholder="What happened? How did it go?"></textarea>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="interaction-followup">Follow-up Needed?</label>
+                                    <div class="followup-container">
+                                        <input type="checkbox" id="interaction-followup">
+                                        <label for="interaction-followup">Yes, follow up required</label>
+                                        <input type="date" id="interaction-followup-date" disabled>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-actions">
+                                    <button type="submit" class="btn-primary">Save Interaction</button>
+                                    <button type="button" class="btn-secondary" id="cancel-interaction">Cancel</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Task Modal from original -->
+        </main>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

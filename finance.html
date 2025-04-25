@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Planner | Holistic Life Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <nav class="sidebar">
+            <div class="profile">
+                <div class="profile-img">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <h3>Enilama Oshoriamhe</h3>
+                <p>Biochemist | Data Engineer | Developer</p>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li><a href="daily-planner.html"><i class="fas fa-calendar-day"></i> Daily Planner</a></li>
+                <li><a href="goals.html"><i class="fas fa-bullseye"></i> Goals & Challenges</a></li>
+                <li><a href="reflection.html"><i class="fas fa-book"></i> Journal & Reflection</a></li>
+                <li><a href="professional.html"><i class="fas fa-briefcase"></i> Professional Life</a></li>
+                <li><a href="finance.html"><i class="fas fa-chart-line"></i> Financial Tracker</a></li>
+                <li><a href="learning.html"><i class="fas fa-graduation-cap"></i> Learning & Growth</a></li>
+                <li><a href="spiritual.html"><i class="fas fa-pray"></i> Spiritual Journey</a></li>
+                <li><a href="relationships.html"><i class="fas fa-users"></i> Relationships</a></li>
+                <li><a href="analytics.html"><i class="fas fa-chart-bar"></i> Growth Analytics</a></li>
+                <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+            </ul>
+            
+            <div class="logout">
+                <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </nav>
+        <!--#include virtual="sidebar.html" -->
+        
+        <main class="content">
+            <header>
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search...">
+                </div>
+                
+                <div class="header-right">
+                    <div class="date-time">
+                        <span id="current-date">April 20, 2025</span>
+                        <span id="current-time">12:00 PM</span>
+                    </div>
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                </div>
+            </header>
+            <!--#include virtual="header.html" -->
+            
+            <section class="section" id="finance">
+                <h2>Financial Tracker</h2>
+                
+                <!-- Financial Health Dashboard -->
+                <div class="finance-dashboard">
+                    <div class="finance-overview">
+                        <div class="finance-card">
+                            <h3>Current Savings</h3>
+                            <p id="current-savings">₦0</p>
+                        </div>
+                        <div class="finance-card">
+                            <h3>Monthly Income</h3>
+                            <p id="monthly-income">₦0</p>
+                        </div>
+                        <div class="finance-card">
+                            <h3>Net Worth</h3>
+                            <p id="net-worth">₦0</p>
+                        </div>
+                    </div>
+                    
+                    <div class="finance-charts">
+                        <div class="chart-container">
+                            <h3>Income Breakdown</h3>
+                            <canvas id="incomeChart"></canvas>
+                        </div>
+                        <div class="chart-container">
+                            <h3>10-Year Net Worth Projection</h3>
+                            <canvas id="netWorthChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="financial-advice">
+                        <h3>Personalized Financial Advice</h3>
+                        <div id="financial-advice"></div>
+                    </div>
+                </div>
+                
+                <!-- Purchase Goals System -->
+                <div class="purchase-goals-section">
+                    <h3>Purchase Goals</h3>
+                    <div id="purchase-goals" class="purchase-goals-grid"></div>
+                    
+                    <div class="goal-form-container">
+                        <h4>Create New Purchase Goal</h4>
+                        <form id="saveGoalForm">
+                            <div class="form-group">
+                                <label for="goalName">Goal Name</label>
+                                <input type="text" id="goalName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="goalAmount">Target Amount (₦)</label>
+                                <input type="number" id="goalAmount" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="currentSaved">Already Saved (₦)</label>
+                                <input type="number" id="currentSaved" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="goalDeadline">Target Date</label>
+                                <input type="date" id="goalDeadline" required>
+                            </div>
+                            <button type="submit" class="btn-save-goal">
+                                <i class="fas fa-plus"></i> Save Goal
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Wealth Building Strategies -->
+                <div class="wealth-strategies">
+                    <h3>Wealth Building Strategies</h3>
+                    <div class="strategy-cards">
+                        <div class="strategy-card">
+                            <h4><i class="fas fa-chart-pie"></i> Dalio's Allocation</h4>
+                            <ul>
+                                <li>Stocks: 30%</li>
+                                <li>Real Estate: 25%</li>
+                                <li>Bonds: 20%</li>
+                                <li>Commodities: 15%</li>
+                                <li>Cash: 5%</li>
+                                <li>Crypto: 5%</li>
+                            </ul>
+                        </div>
+                        <div class="strategy-card">
+                            <h4><i class="fas fa-piggy-bank"></i> Savings Strategy</h4>
+                            <p>Save at least 20% of income monthly</p>
+                            <p>Invest 70% of savings</p>
+                            <p>Keep 6 months emergency fund</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Task Modal from original -->
+        </main>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/daily-planner.js"></script>
+</body>
+</html>

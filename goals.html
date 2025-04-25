@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goals & Challenges | Holistic Life Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <nav class="sidebar">
+            <div class="profile">
+                <div class="profile-img">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <h3>Enilama Oshoriamhe</h3>
+                <p>Biochemist | Data Engineer | Developer</p>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li><a href="daily-planner.html"><i class="fas fa-calendar-day"></i> Daily Planner</a></li>
+                <li><a href="goals.html"><i class="fas fa-bullseye"></i> Goals & Challenges</a></li>
+                <li><a href="reflection.html"><i class="fas fa-book"></i> Journal & Reflection</a></li>
+                <li><a href="professional.html"><i class="fas fa-briefcase"></i> Professional Life</a></li>
+                <li><a href="finance.html"><i class="fas fa-chart-line"></i> Financial Tracker</a></li>
+                <li><a href="learning.html"><i class="fas fa-graduation-cap"></i> Learning & Growth</a></li>
+                <li><a href="spiritual.html"><i class="fas fa-pray"></i> Spiritual Journey</a></li>
+                <li><a href="relationships.html"><i class="fas fa-users"></i> Relationships</a></li>
+                <li><a href="analytics.html"><i class="fas fa-chart-bar"></i> Growth Analytics</a></li>
+                <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+            </ul>
+            
+            <div class="logout">
+                <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </nav>
+        <!--#include virtual="sidebar.html" -->
+        
+        <main class="content">
+            <header>
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search...">
+                </div>
+                
+                <div class="header-right">
+                    <div class="date-time">
+                        <span id="current-date">April 20, 2025</span>
+                        <span id="current-time">12:00 PM</span>
+                    </div>
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                </div>
+            </header>
+            <!--#include virtual="header.html" -->
+            
+            <section class="section" id="goals">
+                <h2>Goals & Challenges</h2>
+                
+                <div class="goals-intro">
+                    <p>Manage your objectives, habits, and SMART goals in one place.</p>
+                </div>
+                
+                <div class="goals-tabs">
+                    <button class="tab-btn active" data-tab="okr">OKRs</button>
+                    <button class="tab-btn" data-tab="habits">Habits</button>
+                    <button class="tab-btn" data-tab="smart-goals">SMART Goals</button>
+                </div>
+                
+                <div class="goals-content">
+                    <div id="okr-container" class="tab-content active"></div>
+                    <div id="habits-container" class="tab-content"></div>
+                    <div id="smart-goals-container" class="tab-content"></div>
+                </div>
+                
+                <p id="motivational-quote" class="motivational-quote"></p>
+                
+                <div class="add-goal-buttons">
+                    <button id="add-okr" class="btn-add-goal">
+                        <i class="fas fa-plus"></i> Add Objective
+                    </button>
+                    <button id="add-habit" class="btn-add-goal">
+                        <i class="fas fa-plus"></i> Add Habit
+                    </button>
+                    <button id="add-smart-goal" class="btn-add-goal">
+                        <i class="fas fa-plus"></i> Add SMART Goal
+                    </button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/goals.js"></script>
+</body>
+</html>
